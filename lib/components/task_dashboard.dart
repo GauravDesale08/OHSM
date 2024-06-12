@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:task/components/new_bottomsheet.dart';
 import 'package:task/components/task_card.dart';
 import 'package:task/components/task_overview.dart';
-
 import 'calendar_header.dart';
 import 'checklist_bottom_sheet.dart';
 
@@ -20,11 +20,12 @@ class _TaskDashboardState extends State<TaskDashboard> {
       taskName: 'Room 303 Set Up',
       category: 'Housekeeping',
       assignee: 'Garima Bhatia',
-      progress: 0.3,
+      progress: 0.8,
       dueDate: '14 July 2024, 05:00 PM',
       priority: 'High',
       priorityColor: Colors.red,
       status: 'In-progress',
+      categoryColor: Colors.blue,
     ),
     Task(
       taskName: 'Fire Place Check & Up...',
@@ -35,16 +36,18 @@ class _TaskDashboardState extends State<TaskDashboard> {
       priority: 'Low',
       priorityColor: Colors.green,
       status: 'To Do',
+      categoryColor: Colors.blue,
     ),
     Task(
       taskName: 'Room 303 Set Up',
       category: 'Housekeeping',
       assignee: 'Garima Bhatia',
-      progress: 0.3,
+      progress: 0.6,
       dueDate: '14 July 2024, 05:00 PM',
       priority: 'High',
       priorityColor: Colors.red,
       status: 'In-progress',
+      categoryColor: Colors.blue,
     ),
     Task(
       taskName: 'Fire Place Check & Up...',
@@ -55,26 +58,29 @@ class _TaskDashboardState extends State<TaskDashboard> {
       priority: 'Low',
       priorityColor: Colors.green,
       status: 'To Do',
+      categoryColor: Colors.blue,
     ),
     Task(
       taskName: 'Room 303 Set Up',
       category: 'Housekeeping',
       assignee: 'Garima Bhatia',
-      progress: 0.3,
+      progress: 1.3,
       dueDate: '14 July 2024, 05:00 PM',
       priority: 'High',
       priorityColor: Colors.red,
       status: 'Completed',
+      categoryColor: Colors.blue,
     ),
     Task(
       taskName: 'Fire Place Check & Up...',
       category: 'Maintenance &...',
       assignee: 'Ranganathan',
-      progress: 0.0,
+      progress: 0.2,
       dueDate: '14 July 2024, 05:00 PM',
       priority: 'Low',
       priorityColor: Colors.green,
       status: 'Overdue',
+      categoryColor: Colors.blue,
     ),
   ];
 
@@ -88,23 +94,54 @@ class _TaskDashboardState extends State<TaskDashboard> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        titleSpacing: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(Icons.arrow_back, color: Colors.green),
-        title: Text(
-          'Manage Tasks',
-          style: GoogleFonts.poppins(
-            textStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.green),
+          onPressed: () {
+            // Add your back button action here
+          },
+        ),
+        title: Row(
+          children: [
+            Text(
+              'Manage Tasks',
+              style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            SizedBox(width: 8),
+            Icon(Icons.info_outline, color: Colors.green),
+          ],
+        ),
+        actions: [
+          TextButton.icon(
+            onPressed: () {
+              // Add your incident log action here
+            },
+            icon: Icon(Icons.warning, color: Colors.white),
+            label: Text(
+              'Incident Logs',
+              style: TextStyle(color: Colors.white),
+            ),
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.red,
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             ),
           ),
-        ),
-        centerTitle: true,
-        actions: [
-          Icon(Icons.search, color: Colors.green),
-          SizedBox(width: 16),
+          SizedBox(width: 8),
+          IconButton(
+            icon: Icon(Icons.search, color: Colors.green),
+            onPressed: () {
+              // Add your search action here
+            },
+          ),
+          SizedBox(width: 8),
         ],
       ),
       body: SingleChildScrollView(
@@ -128,11 +165,14 @@ class _TaskDashboardState extends State<TaskDashboard> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (BuildContext context) => ChecklistBottomSheet(),
+            builder: (BuildContext context) => ChecklistBottomSheet1(),
           );
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.pink,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(28.0),
+        ),
       ),
     );
   }

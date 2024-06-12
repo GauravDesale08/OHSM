@@ -18,34 +18,40 @@ class TaskOverview extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'Task Overview',
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      color: Colors.pink,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+          Padding(
+            padding: const EdgeInsets.only(left: 50.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Text(
+                    'Task Overview',
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        color: Colors.pink,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: Text(
-                  'My SOP\'s',
-                  textAlign: TextAlign.right,
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 50.0),
+                    child: Text(
+                      'My SOP\'s',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           SizedBox(height: 16),
           Row(
