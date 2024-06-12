@@ -28,7 +28,7 @@ class _TaskDashboardState extends State<TaskDashboard> {
       categoryColor: Colors.blue,
     ),
     Task(
-      taskName: 'Fire Place Check & Up...',
+      taskName: 'Fire Place Check...',
       category: 'Maintenance &...',
       assignee: 'Ranganathan',
       progress: 0.0,
@@ -50,7 +50,7 @@ class _TaskDashboardState extends State<TaskDashboard> {
       categoryColor: Colors.blue,
     ),
     Task(
-      taskName: 'Fire Place Check & Up...',
+      taskName: 'Fire Place Check...',
       category: 'Maintenance &...',
       assignee: 'Ranganathan',
       progress: 0.0,
@@ -72,7 +72,7 @@ class _TaskDashboardState extends State<TaskDashboard> {
       categoryColor: Colors.blue,
     ),
     Task(
-      taskName: 'Fire Place Check & Up...',
+      taskName: 'Fire Place Check...',
       category: 'Maintenance &...',
       assignee: 'Ranganathan',
       progress: 0.2,
@@ -116,7 +116,7 @@ class _TaskDashboardState extends State<TaskDashboard> {
               ),
             ),
             SizedBox(width: 8),
-            Icon(Icons.info_outline, color: Colors.green),
+            Icon(Icons.info_outline, color: Colors.green, size: 20,),
           ],
         ),
         actions: [
@@ -124,17 +124,16 @@ class _TaskDashboardState extends State<TaskDashboard> {
             onPressed: () {
               // Add your incident log action here
             },
-            icon: Icon(Icons.warning, color: Colors.white),
+            icon: Icon(Icons.warning, color: Colors.white, size: 15,),
             label: Text(
               'Incident Logs',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white, fontSize: 10),
             ),
             style: TextButton.styleFrom(
               backgroundColor: Colors.red,
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             ),
           ),
-          SizedBox(width: 8),
           IconButton(
             icon: Icon(Icons.search, color: Colors.green),
             onPressed: () {
